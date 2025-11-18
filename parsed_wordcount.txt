@@ -1,0 +1,199 @@
+Document with 11 blocks
+
+===== Block 0 =====
+Kind: Docs
+----- Text -----
+\section{A tiny word counter}
+
+
+
+We will build a minimal word counter and explain its parts.
+
+The program runs in $O(n)$ over the bytes of the input.
+
+We assemble the final script in the chunk \verb|<<wc.py>>=| by
+
+referring to named subchunks that we define later.
+
+
+
+================
+
+===== Block 1 =====
+Kind: Code
+Name: wc.py
+----- Text -----
+
+
+
+
+
+
+
+
+
+================
+
+===== Block 2 =====
+Kind: Docs
+----- Text -----
+
+
+
+
+\subsection{Imports}
+
+
+
+================
+
+===== Block 3 =====
+Kind: Code
+Name: imports
+----- Text -----
+
+import sys
+
+from collections import Counter
+
+from pathlib import Path
+
+import argparse
+
+================
+
+===== Block 4 =====
+Kind: Docs
+----- Text -----
+
+
+
+
+\subsection{Argument parsing}
+
+
+
+================
+
+===== Block 5 =====
+Kind: Code
+Name: parse-args
+----- Text -----
+
+def parse_args(argv=None):
+
+    p = argparse.ArgumentParser(
+
+        description="Count words in a file or stdin."
+
+    )
+
+    p.add_argument("file", nargs="?", help="Path to text file; default: stdin")
+
+    p.add_argument("-n", "--top", type=int, default=10,
+
+                   help="Show top-N words (default: 10)")
+
+    return p.parse_args(argv)
+
+================
+
+===== Block 6 =====
+Kind: Docs
+----- Text -----
+
+
+
+
+\subsection{Counting logic}
+
+
+
+================
+
+===== Block 7 =====
+Kind: Code
+Name: count-words
+----- Text -----
+
+def words_from_text(text: str):
+
+    # Very naive tokenization: split on whitespace and punctuation
+
+    # Lowercasing makes counts case-insensitive.
+
+    import re
+
+    for w in re.findall(r"[A-Za-z0-9']+", text.lower()):
+
+        yield w
+
+
+
+def count_words(stream) -> Counter:
+
+    c = Counter()
+
+    for line in stream:
+
+        c.update(words_from_text(line))
+
+    return c
+
+================
+
+===== Block 8 =====
+Kind: Docs
+----- Text -----
+
+
+
+
+\subsection{Program entry point}
+
+
+
+================
+
+===== Block 9 =====
+Kind: Code
+Name: main-guard
+----- Text -----
+
+def main(argv=None):
+
+    args = parse_args(argv)
+
+    if args.file:
+
+        data = Path(args.file).read_text(encoding="utf-8", errors="ignore")
+
+        stream = data.splitlines(keepends=True)
+
+    else:
+
+        stream = sys.stdin
+
+
+
+    counts = count_words(stream)
+
+    for word, n in counts.most_common(args.top):
+
+        print(f"{n:7d}  {word}")
+
+
+
+if __name__ == "__main__":
+
+    main()
+
+================
+
+===== Block 10 =====
+Kind: Docs
+----- Text -----
+
+
+================
+
