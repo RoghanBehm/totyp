@@ -4,7 +4,7 @@
 struct Block {
     enum class Kind { Docs, Code };
 
-    Kind kind;            
+    Kind kind;              
     std::string name;     // empty for docs
     std::string text;     
 };
