@@ -1,4 +1,0 @@
-/home/roghan/repo/noweb-typst/build/CMakeFiles/core.dir
-/home/roghan/repo/noweb-typst/build/CMakeFiles/noweb_typst.dir
-/home/roghan/repo/noweb-typst/build/CMakeFiles/edit_cache.dir
-/home/roghan/repo/noweb-typst/build/CMakeFiles/rebuild_cache.dir

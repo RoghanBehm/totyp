@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/noweb_typst.dir/src/main.cpp.o -o noweb_typst  libcore.a 

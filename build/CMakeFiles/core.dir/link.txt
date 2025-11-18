@@ -1,2 +1,0 @@
-/usr/bin/ar qc libcore.a CMakeFiles/core.dir/src/emitter.cpp.o CMakeFiles/core.dir/src/main.cpp.o CMakeFiles/core.dir/src/parser.cpp.o
-/usr/bin/ranlib libcore.a
