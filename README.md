@@ -21,6 +21,12 @@ This project replaces the LaTeX step with a Typst emitter:
 > The code language name is passed so that code blocks can be emitted
 > with proper syntax highlighting (e.g. ```python).
 
+## Example Output
+`latex_out.pdf` is the LaTeX-rendered PDF from compiling the .tex output of `noweave wordcount.nw`.
+
+`typst_out.pdf` is the Typst-rendered PDF from compiling the .typ output (out.typ) of this Typst backend.
+
+Comparison of the two highlights some of the remaining deficiencies in this program. 
 
 
 ### TODO
