@@ -20,3 +20,11 @@ This project replaces the LaTeX step with a Typst emitter:
 > [!NOTE]
 > The code language name is passed so that code blocks can be emitted
 > with proper syntax highlighting (e.g. ```python).
+
+
+
+### TODO
+- Update IR to implement @use
+- Add file name and page count to right side of header
+- Support @quote and @endquote
+- Reconsider @literal implementation

@@ -2,6 +2,10 @@
 
 #set heading(numbering: "1.1")
 
+#let today = datetime.today()
+
+#set page(header: [ #set text(8pt); #today.display("[month repr:long] [day], [year]") #h(1fr) ])
+
 = A tiny word counter
  
  We will build a minimal word counter and explain its parts.
