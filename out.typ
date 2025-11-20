@@ -4,7 +4,7 @@
 
 #let today = datetime.today()
 
-#set page(header: [ #set text(8pt); #today.display("[month repr:long] [day], [year]") #h(1fr) ])
+#set page(header: context [ #set text(10pt); #today.display("[month repr:long] [day], [year]")#h(1fr)`wordcount.nw`#h(1cm)#counter(page).display()])
 
 = A tiny word counter
  
@@ -14,7 +14,7 @@
  referring to named subchunks that we define later.
  
  
-$chevron.l$wc.py$chevron.r#h(-0.1em)eq.triple$
+$chevron.l$_wc.py_$chevron.r#h(-0.1em)eq.triple$
 
 ```python
  
@@ -29,7 +29,7 @@ $chevron.l$wc.py$chevron.r#h(-0.1em)eq.triple$
  == Imports
  
  
-$chevron.l$imports$chevron.r#h(-0.1em)eq.triple$
+$chevron.l$_imports_$chevron.r#h(-0.1em)eq.triple$
 
 ```python
  import sys
@@ -44,7 +44,7 @@ $chevron.l$imports$chevron.r#h(-0.1em)eq.triple$
  == Argument parsing
  
  
-$chevron.l$parse-args$chevron.r#h(-0.1em)eq.triple$
+$chevron.l$_parse-args_$chevron.r#h(-0.1em)eq.triple$
 
 ```python
  def parse_args(argv=None):
@@ -63,7 +63,7 @@ $chevron.l$parse-args$chevron.r#h(-0.1em)eq.triple$
  == Counting logic
  
  
-$chevron.l$count-words$chevron.r#h(-0.1em)eq.triple$
+$chevron.l$_count-words_$chevron.r#h(-0.1em)eq.triple$
 
 ```python
  def words_from_text(text: str):
@@ -86,7 +86,7 @@ $chevron.l$count-words$chevron.r#h(-0.1em)eq.triple$
  == Program entry point
  
  
-$chevron.l$main-guard$chevron.r#h(-0.1em)eq.triple$
+$chevron.l$_main-guard_$chevron.r#h(-0.1em)eq.triple$
 
 ```python
  def main(argv=None):

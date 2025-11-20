@@ -27,6 +27,14 @@ int main(int argc, char **argv) {
   dump_document(doc);
 
   std::ofstream file("out.typ");
-  emit_typst(file, doc, code_lang);
+  
+  // Rebuild .nw filename (hacky)
+  std::size_t pos = filename.find_last_of('/');
+  std::string nw_filename = (pos == std::string::npos) ? filename : filename.substr(pos + 1);
+  if (nw_filename.size() >= 2) {
+      nw_filename.replace(nw_filename.size() - 2, 2, "nw");
+  }
+ 
+  emit_typst(file, doc, code_lang, nw_filename);
   return 0;
 }

@@ -31,6 +31,5 @@ Comparison of the two highlights some of the remaining deficiencies in this prog
 
 ### TODO
 - Update IR to implement @use
-- Add file name and page count to right side of header
 - Support @quote and @endquote
 - Reconsider @literal implementation
